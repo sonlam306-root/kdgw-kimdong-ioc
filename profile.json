@@ -305,27 +305,43 @@
   {
    "addr": 2,
    "type": "kd-touch",
+   "all_off": [
+    "RLY1",
+    "RLY2",
+    "RLY3",
+    "RLY4",
+    "RLY5"
+   ],
    "keys": [
     {
+     "label": "TẮT HẾT",
+     "icon": "power",
+     "action": "all_off"
+    },
+    {
      "label": "ĐÈN DÃY 1",
+     "icon": "light",
      "targets": [
       "RLY1"
      ]
     },
     {
      "label": "ĐÈN DÃY 2",
+     "icon": "light",
      "targets": [
       "RLY2"
      ]
     },
     {
      "label": "ĐÈN BẢNG",
+     "icon": "light",
      "targets": [
       "RLY3"
      ]
     },
     {
      "label": "QUẠT",
+     "icon": "fan",
      "targets": [
       "RLY4",
       "RLY5"
