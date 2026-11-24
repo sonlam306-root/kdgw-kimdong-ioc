@@ -21,7 +21,7 @@ Phần cứng: **KD-GW-HW-v1.2** (không sửa). Dự án: `kdioc`. Trạng thá
 | DI7 | digital_in | 7 | Thiết bị điện | Công tắc chế độ TAY / TỰ ĐỘNG | — | Ở chế độ TAY gateway không tự tắt thiết bị |
 | DI8 | digital_in | 8 | Thiết bị điện | Tiếp điểm phụ contactor đèn (xác nhận đã đóng) | — | Phát hiện contactor kẹt |
 | DI-F | pulse_in | DP | — | Trống (có thể đếm người ra vào bằng cảm biến hồng ngoại) | — |  |
-| RS485 | modbus_rtu | ĐIỆN NĂNG | Điện năng | Đồng hồ điện PZEM-016 Modbus (V, A, kW, kWh) | nguồn riêng 220V | Địa chỉ Modbus 1, 9600 baud |
+| RS485 | modbus_rtu | ĐIỆN NĂNG | Điện năng | Bus Modbus RTU: đồng hồ điện PZEM-016 (địa chỉ 1) + mặt công tắc cảm ứng KD-Touch (địa chỉ 2, xem repo kdgw-touch-panel) | nguồn riêng 220V | 9600 baud, cáp mạng: cặp A/B + 12V/GND cấp cho mặt cảm ứng; điện trở cuối đường 120Ω ở thiết bị xa nhất |
 | PWR1 | pwm_12v | QUẠT | Môi trường lớp | Quạt hút 12V (chạy theo CO2) | 12V PWM |  |
 | PWR2 | pwm_12v | DP | — | Trống | — |  |
 | SERVO | servo | DP | — | Trống | — |  |
@@ -40,5 +40,6 @@ Cổng chưa dùng: không có
 ## Mạng, camera, nguồn
 
 - **LAN:** Switch tầng → server IOC (Pi 5 / VPS) → dashboard kdioc.ecosmartkd.click; mỗi phòng 1 gateway, mã phòng đặt trong cấu hình (VD: A-1.03)
+- **công tắc:** Mặt công tắc cảm ứng ở cửa lớp (dự án kdgw-touch-panel) nối RS485 cùng bus đồng hồ điện; chạm → gateway đảo relay đèn/quạt, LED trên mặt hiện trạng thái thật. Gateway hỏng → dùng công tắc TAY–0–TỰ ĐỘNG trong tủ điện (nếu lắp).
 - **camera:** Camera IP của phòng đẩy RTSP thẳng về server IOC, không qua gateway; gateway chỉ gửi sự kiện (có người, cửa mở, khói) để dashboard mở đúng camera
 - **power:** Adapter 12V 5A đặt trong tủ điện phòng. Đèn, quạt, máy chiếu 220V đóng cắt qua relay → khởi động từ (contactor) có CB riêng; relay chỉ đóng cuộn hút contactor

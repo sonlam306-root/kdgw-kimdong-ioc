@@ -21,6 +21,7 @@
  },
  "network": {
   "LAN": "Switch tầng → server IOC (Pi 5 / VPS) → dashboard kdioc.ecosmartkd.click; mỗi phòng 1 gateway, mã phòng đặt trong cấu hình (VD: A-1.03)",
+  "công tắc": "Mặt công tắc cảm ứng ở cửa lớp (dự án kdgw-touch-panel) nối RS485 cùng bus đồng hồ điện; chạm → gateway đảo relay đèn/quạt, LED trên mặt hiện trạng thái thật. Gateway hỏng → dùng công tắc TAY–0–TỰ ĐỘNG trong tủ điện (nếu lắp).",
   "camera": "Camera IP của phòng đẩy RTSP thẳng về server IOC, không qua gateway; gateway chỉ gửi sự kiện (có người, cửa mở, khói) để dashboard mở đúng camera",
   "power": "Adapter 12V 5A đặt trong tủ điện phòng. Đèn, quạt, máy chiếu 220V đóng cắt qua relay → khởi động từ (contactor) có CB riêng; relay chỉ đóng cuộn hút contactor"
  },
@@ -182,10 +183,10 @@
    "port": "RS485",
    "zone": "DN",
    "label": "ĐIỆN NĂNG",
-   "device": "Đồng hồ điện PZEM-016 Modbus (V, A, kW, kWh)",
+   "device": "Bus Modbus RTU: đồng hồ điện PZEM-016 (địa chỉ 1) + mặt công tắc cảm ứng KD-Touch (địa chỉ 2, xem repo kdgw-touch-panel)",
    "power": "nguồn riêng 220V",
    "unit": "kWh",
-   "note": "Địa chỉ Modbus 1, 9600 baud"
+   "note": "9600 baud, cáp mạng: cặp A/B + 12V/GND cấp cho mặt cảm ứng; điện trở cuối đường 120Ω ở thiết bị xa nhất"
   },
   {
    "port": "PWR1",
