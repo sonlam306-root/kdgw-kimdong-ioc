@@ -1,0 +1,299 @@
+{
+ "project": "kdioc",
+ "name": "KimDong IOC – gateway phòng học",
+ "hardware": "KD-GW-HW-v1.2",
+ "status": "nháp – chờ thầy duyệt",
+ "dashboard_name": "KimDong IOC Center (kdioc.ecosmartkd.click)",
+ "relay_modules": 1,
+ "lid": [
+  "Trường THCS Kim Đồng",
+  "KimDong IOC"
+ ],
+ "relay_lid": [
+  "RELAY",
+  "220V"
+ ],
+ "zones": {
+  "MT": "Môi trường lớp",
+  "AN": "An ninh – an toàn",
+  "TB": "Thiết bị điện",
+  "DN": "Điện năng"
+ },
+ "network": {
+  "LAN": "Switch tầng → server IOC (Pi 5 / VPS) → dashboard kdioc.ecosmartkd.click; mỗi phòng 1 gateway, mã phòng đặt trong cấu hình (VD: A-1.03)",
+  "camera": "Camera IP của phòng đẩy RTSP thẳng về server IOC, không qua gateway; gateway chỉ gửi sự kiện (có người, cửa mở, khói) để dashboard mở đúng camera",
+  "power": "Adapter 12V 5A đặt trong tủ điện phòng. Đèn, quạt, máy chiếu 220V đóng cắt qua relay → khởi động từ (contactor) có CB riêng; relay chỉ đóng cuộn hút contactor"
+ },
+ "ports": [
+  {
+   "port": "AI1",
+   "zone": "MT",
+   "label": "ĐỘ ỒN",
+   "device": "Cảm biến âm thanh MAX4466 (độ ồn lớp)",
+   "power": "3V3",
+   "unit": "dB*",
+   "note": "Đặt giữa lớp, xa loa"
+  },
+  {
+   "port": "AI2",
+   "zone": "DN",
+   "label": "DÒNG",
+   "device": "Kẹp dòng SCT-013-030 (dòng tổng phòng) + mạch bias 1.65V",
+   "power": "3V3",
+   "unit": "A",
+   "note": "Dự phòng khi chưa lắp đồng hồ RS485"
+  },
+  {
+   "port": "AI3",
+   "zone": "AN",
+   "label": "GAS",
+   "device": "MQ-2 (khói / gas)",
+   "power": "5V (rail) + chia áp 10k/20k",
+   "unit": "ppm*",
+   "note": "Ngõ ra qua cầu chia áp trước khi vào AI3"
+  },
+  {
+   "port": "AI4",
+   "zone": "",
+   "label": "DP",
+   "device": "Trống",
+   "power": "",
+   "unit": "",
+   "note": ""
+  },
+  {
+   "port": "AI5",
+   "zone": "",
+   "label": "DP",
+   "device": "Trống",
+   "power": "",
+   "unit": "",
+   "note": ""
+  },
+  {
+   "port": "AI6",
+   "zone": "",
+   "label": "DP",
+   "device": "Trống",
+   "power": "",
+   "unit": "",
+   "note": ""
+  },
+  {
+   "port": "OW",
+   "zone": "TB",
+   "label": "T°TỦ",
+   "device": "DS18B20 trong tủ điện / tủ mạng phòng",
+   "power": "3V3",
+   "unit": "°C",
+   "note": "Cảnh báo tủ quá nhiệt"
+  },
+  {
+   "port": "LOAD",
+   "zone": "",
+   "label": "DP",
+   "device": "Trống",
+   "power": "",
+   "unit": "",
+   "note": ""
+  },
+  {
+   "port": "DI1",
+   "zone": "AN",
+   "label": "1",
+   "device": "PIR đầu lớp (có người)",
+   "power": "5V",
+   "unit": "",
+   "note": "PIR ngõ ra NPN/relay"
+  },
+  {
+   "port": "DI2",
+   "zone": "AN",
+   "label": "2",
+   "device": "PIR cuối lớp",
+   "power": "5V",
+   "unit": "",
+   "note": "Kết hợp DI1 để tự tắt đèn quạt khi phòng trống"
+  },
+  {
+   "port": "DI3",
+   "zone": "AN",
+   "label": "3",
+   "device": "Công tắc từ cửa chính",
+   "power": "",
+   "unit": "",
+   "note": "Tiếp điểm khô"
+  },
+  {
+   "port": "DI4",
+   "zone": "AN",
+   "label": "4",
+   "device": "Công tắc từ cửa sau / cửa sổ",
+   "power": "",
+   "unit": "",
+   "note": ""
+  },
+  {
+   "port": "DI5",
+   "zone": "AN",
+   "label": "5",
+   "device": "Đầu báo khói (ngõ relay khô)",
+   "power": "12V riêng",
+   "unit": "",
+   "note": "Báo về IOC + bật còi"
+  },
+  {
+   "port": "DI6",
+   "zone": "AN",
+   "label": "6",
+   "device": "Nút gọi khẩn cấp (bàn giáo viên)",
+   "power": "",
+   "unit": "",
+   "note": "Nút nấm có khoá"
+  },
+  {
+   "port": "DI7",
+   "zone": "TB",
+   "label": "7",
+   "device": "Công tắc chế độ TAY / TỰ ĐỘNG",
+   "power": "",
+   "unit": "",
+   "note": "Ở chế độ TAY gateway không tự tắt thiết bị"
+  },
+  {
+   "port": "DI8",
+   "zone": "TB",
+   "label": "8",
+   "device": "Tiếp điểm phụ contactor đèn (xác nhận đã đóng)",
+   "power": "",
+   "unit": "",
+   "note": "Phát hiện contactor kẹt"
+  },
+  {
+   "port": "DI-F",
+   "zone": "",
+   "label": "DP",
+   "device": "Trống (có thể đếm người ra vào bằng cảm biến hồng ngoại)",
+   "power": "",
+   "unit": "",
+   "note": ""
+  },
+  {
+   "port": "RS485",
+   "zone": "DN",
+   "label": "ĐIỆN NĂNG",
+   "device": "Đồng hồ điện PZEM-016 Modbus (V, A, kW, kWh)",
+   "power": "nguồn riêng 220V",
+   "unit": "kWh",
+   "note": "Địa chỉ Modbus 1, 9600 baud"
+  },
+  {
+   "port": "PWR1",
+   "zone": "MT",
+   "label": "QUẠT",
+   "device": "Quạt hút 12V (chạy theo CO2)",
+   "power": "12V PWM",
+   "unit": "%",
+   "note": ""
+  },
+  {
+   "port": "PWR2",
+   "zone": "",
+   "label": "DP",
+   "device": "Trống",
+   "power": "",
+   "unit": "",
+   "note": ""
+  },
+  {
+   "port": "SERVO",
+   "zone": "",
+   "label": "DP",
+   "device": "Trống",
+   "power": "",
+   "unit": "",
+   "note": ""
+  },
+  {
+   "port": "I2C",
+   "zone": "MT",
+   "label": "I2C",
+   "device": "Hub I2C: SCD40 CO2 + nhiệt + ẩm (0x62), BH1750 ánh sáng (0x23), OLED 0.96\" ở cửa (0x3C)",
+   "power": "3V3",
+   "unit": "",
+   "note": "Dây I2C ≤ 1.5 m"
+  },
+  {
+   "port": "RLY1",
+   "zone": "TB",
+   "label": "ĐÈN DÃY 1",
+   "device": "Contactor đèn dãy cửa sổ",
+   "power": "cuộn 220V",
+   "unit": "",
+   "note": "Relay COM–NO đóng cuộn hút contactor"
+  },
+  {
+   "port": "RLY2",
+   "zone": "TB",
+   "label": "ĐÈN DÃY 2",
+   "device": "Contactor đèn dãy giữa",
+   "power": "cuộn 220V",
+   "unit": "",
+   "note": ""
+  },
+  {
+   "port": "RLY3",
+   "zone": "TB",
+   "label": "ĐÈN BẢNG",
+   "device": "Contactor đèn bảng",
+   "power": "cuộn 220V",
+   "unit": "",
+   "note": ""
+  },
+  {
+   "port": "RLY4",
+   "zone": "TB",
+   "label": "QUẠT 1-2",
+   "device": "Contactor quạt trần 1–2",
+   "power": "cuộn 220V",
+   "unit": "",
+   "note": ""
+  },
+  {
+   "port": "RLY5",
+   "zone": "TB",
+   "label": "QUẠT 3-4",
+   "device": "Contactor quạt trần 3–4",
+   "power": "cuộn 220V",
+   "unit": "",
+   "note": ""
+  },
+  {
+   "port": "RLY6",
+   "zone": "TB",
+   "label": "MÁY CHIẾU",
+   "device": "Ổ cấp nguồn máy chiếu / tivi",
+   "power": "cuộn 220V",
+   "unit": "",
+   "note": "Tắt sau giờ học"
+  },
+  {
+   "port": "RLY7",
+   "zone": "TB",
+   "label": "Ổ CẮM GV",
+   "device": "Ổ cắm bàn giáo viên",
+   "power": "cuộn 220V",
+   "unit": "",
+   "note": ""
+  },
+  {
+   "port": "RLY8",
+   "zone": "AN",
+   "label": "CÒI",
+   "device": "Còi + đèn báo 12V",
+   "power": "12V",
+   "unit": "",
+   "note": "Khói, gọi khẩn"
+  }
+ ]
+}
