@@ -1,6 +1,6 @@
 # KimDong IOC – gateway phòng học — bảng cổng KD-GW
 
-Phần cứng: **KD-GW-HW-v1.2** (không sửa). Dự án: `kdioc`. Trạng thái profile: **nháp – chờ thầy duyệt**.
+Phần cứng: **KD-GW-HW-v1.2** (không sửa). Dự án: `kdioc`. Trạng thái profile: **đã duyệt (24/11/2026)**.
 
 | Cổng | Loại | Nhãn trên vỏ | Khu | Thiết bị | Nguồn | Ghi chú |
 |---|---|---|---|---|---|---|

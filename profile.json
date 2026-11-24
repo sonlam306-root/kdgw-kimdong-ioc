@@ -2,7 +2,7 @@
  "project": "kdioc",
  "name": "KimDong IOC – gateway phòng học",
  "hardware": "KD-GW-HW-v1.2",
- "status": "nháp – chờ thầy duyệt",
+ "status": "đã duyệt (24/11/2026)",
  "dashboard_name": "KimDong IOC Center (kdioc.ecosmartkd.click)",
  "relay_modules": 1,
  "lid": [

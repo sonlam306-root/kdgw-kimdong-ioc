@@ -1,7 +1,7 @@
 # KimDong IOC — gateway phòng học
 
 - Phần cứng: **KD-GW-HW-v1.2**, mỗi phòng học 1 gateway
-- Profile: `profile.json` — **NHÁP, chờ thầy duyệt** (thiết bị đề xuất theo phòng học điển hình)
+- Profile: `profile.json` — **đã duyệt** (24/11/2026)
 - Khu: Môi trường lớp · An ninh – an toàn · Thiết bị điện · Điện năng
 - Dashboard: KimDong IOC Center (kdioc.ecosmartkd.click)
 - Tải 220V (đèn, quạt trần, máy chiếu, ổ cắm) đóng cắt qua contactor; relay KD-GW chỉ đóng cuộn hút
