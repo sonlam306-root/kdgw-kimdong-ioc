@@ -40,6 +40,6 @@ Cổng chưa dùng: không có
 ## Mạng, camera, nguồn
 
 - **LAN:** Switch tầng → server IOC (Pi 5 / VPS) → dashboard kdioc.ecosmartkd.click; mỗi phòng 1 gateway, mã phòng đặt trong cấu hình (VD: A-1.03)
-- **công tắc:** Mặt công tắc cảm ứng ở cửa lớp (dự án kdgw-touch-panel) nối RS485 cùng bus đồng hồ điện; chạm → gateway đảo relay đèn/quạt, LED trên mặt hiện trạng thái thật. Gateway hỏng → dùng công tắc TAY–0–TỰ ĐỘNG trong tủ điện (nếu lắp).
+- **công tắc:** Mặt công tắc cảm ứng ở cửa lớp (dự án kdgw-touch-panel) nối RS485 cùng bus đồng hồ điện; chạm → gateway đảo relay đèn/quạt, LED trên mặt hiện trạng thái thật. Gateway hỏng → dùng công tắc TAY–0–TỰ ĐỘNG trong tủ điện. Đã chốt lắp công tắc TAY–0–TỰ ĐỘNG cho từng contactor.
 - **camera:** Camera IP của phòng đẩy RTSP thẳng về server IOC, không qua gateway; gateway chỉ gửi sự kiện (có người, cửa mở, khói) để dashboard mở đúng camera
 - **power:** Adapter 12V 5A đặt trong tủ điện phòng. Đèn, quạt, máy chiếu 220V đóng cắt qua relay → khởi động từ (contactor) có CB riêng; relay chỉ đóng cuộn hút contactor
